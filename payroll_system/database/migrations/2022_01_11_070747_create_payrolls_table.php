@@ -16,7 +16,8 @@ class CreatePayrollsTable extends Migration
         Schema::create('payrolls', function (Blueprint $table) {
             $table->id();
             $table->foreignId('Employee_id')->nullable()->constrained('employees', 'id')->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('role_id')->nullable()->constrained('rolls', 'id')->cascadeOnUpdate()->nullOnDelete();
+            $table->string('salary');
+            // $table->foreignId('role_id')->nullable()->constrained('rolls', 'id')->cascadeOnUpdate()->nullOnDelete();
             $table->string('over_time');
             $table->string('hours');
             $table->string('rate');

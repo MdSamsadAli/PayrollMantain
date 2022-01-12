@@ -59,8 +59,8 @@
 						</td>
 						<td>{{$employee->name}}</td>
 						<td>{{$employee->email}}</td>
-						{{-- <td>{{$employee->role->name}}</td> --}}
-						{{-- <td>{{$employee->department->name}}</td> --}}
+						<td>{{$employee->role->name??null}}</td>
+						<td>{{$employee->department->name??null}}</td>
 						
 					</tr>
 				@endforeach

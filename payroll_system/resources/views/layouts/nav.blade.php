@@ -35,7 +35,7 @@
 					<li><a href="{{route('dashboard')}}">Dashboard</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-							samsad <span class="caret"></span>
+							{{auth()->check()?auth()->user()->name:null}} <span class="caret"></span>
 							 {{-- {{ Auth::user()->name }} --}}
 						</a>
 

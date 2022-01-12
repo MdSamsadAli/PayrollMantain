@@ -37,10 +37,10 @@
 						</td>
 						
                         <td>
-							{{$employee->role->name}}
+							{{$employee->role->name??null}}
 						</td>
 						<td>
-							{{$employee->department->name}}
+							{{$employee->department->name??null}}
 						</td>
 						<td>
 							{{$employee->salary}}

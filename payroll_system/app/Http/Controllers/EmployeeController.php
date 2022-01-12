@@ -42,17 +42,20 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $emp = new Employee();
-        $emp-> name = $request->get('name');
-        $emp-> email = $request->get('email');
-        $emp-> address = $request->get('address');
-        $emp-> role_id = $request->get('role_id');
-        $emp-> department_id = $request->get('department_id');
-        $emp->salary = $request->get('salary');
+        $data = $request->all();
+        // $emp = new Employee();
+        // $emp-> name = $request->get('name');
+        // $emp-> email = $request->get('email');
+        // $emp-> address = $request->get('address');
+        // $emp-> role_id = $request->get('role_id');
+        // $emp-> department_id = $request->get('department_id');
+        // $emp->salary = $request->get('salary');
         // dd(request()->all());
-        $emp->save();
-        return redirect()->route('employee.index');
+        // $emp->save();
+        if(Employee::create($data)){
+            return redirect()->route('employee.index');
+        }
+        return redirect()->route('employee.create');
     }
 
     /**

@@ -28,7 +28,7 @@
 			<label for="role">Select a Role</label>
 			<select name="role_id"  cols="5" rows="5" class="form-control">
 				@foreach($roll as $roll)
-					<option value="{{ $roll->id }}">{{ $roll->id }}</option>
+					<option value="{{ $roll->id }}">{{ $roll->name }}</option>
 				@endforeach
 			</select>
 		</div>
@@ -37,7 +37,7 @@
 			<label for="department">Select a Department</label>
 			<select name="department"  cols="5" rows="5" class="form-control">
 				@foreach($departments as $department)
-					<option value="{{ $department->id}}">{{ $department->id }}</option>
+					<option value="{{ $department->id}}">{{ $department->name }}</option>
 				@endforeach
 			</select>
 		</div>

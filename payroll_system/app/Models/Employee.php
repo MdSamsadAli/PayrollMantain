@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+    
+    protected $fillable=[
+        "name",
+        "email",
+        "address",
+        "role_id",
+        "department_id",
+        "salary"
+    ];
+
     public function role(){
         return $this->belongsTo(Roll::class, 'role_id');
     }
