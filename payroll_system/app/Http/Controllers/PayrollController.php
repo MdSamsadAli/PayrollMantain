@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Payroll;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,9 @@ class PayrollController extends Controller
      */
     public function create()
     {
-        //
-        return view('payroll.create');
+        
+        $employees = Employee::get();
+        return view('payroll.create', compact('employees'));
 
     }
 

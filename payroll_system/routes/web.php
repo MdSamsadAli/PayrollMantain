@@ -61,6 +61,8 @@ Route::get('employee/{id}/show', [EmployeeController::class, 'show'])->name('emp
 Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
 Route::post('/employee/{id}/update', [EmployeeController::class, 'update'])->name('employee.update');
 Route::get('/employee/{id}/delete', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+Route::get('/employee/{id}/detail', [EmployeeController::class, 'getEmployee'])->name('get-employee');
+
 
 Route::get('payroll/index', [PayrollController::class, 'index'])->name('payroll.index');
 Route::get('payroll/create', [PayrollController::class, 'create'])->name('payroll.create');

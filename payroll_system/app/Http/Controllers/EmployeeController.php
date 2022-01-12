@@ -102,4 +102,9 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    public function getEmployee($id){
+        $result = Employee::find($id);
+        return response()->json($result);
+    }
 }

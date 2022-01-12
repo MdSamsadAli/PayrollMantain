@@ -23,7 +23,7 @@
 			
 		<tbody>
 			{{-- @if($employee->payrolls->count()> 0) --}}
-				@foreach($payroll -> $payroll)
+				@foreach($payroll as $payroll)
 					<tr>		
 						<td>
                             created_at-
