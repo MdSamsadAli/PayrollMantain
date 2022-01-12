@@ -42,7 +42,6 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        
         $data = $request->all();
         // $emp = new Employee();
         // $emp-> name = $request->get('name');
@@ -51,11 +50,11 @@ class EmployeeController extends Controller
         // $emp-> role_id = $request->get('role_id');
         // $emp-> department_id = $request->get('department_id');
         // $emp->salary = $request->get('salary');
-        // // dd(request()->all());
+        // dd(request()->all());
         // $emp->save();
         if(Employee::create($data)){
             return redirect()->route('employee.index');
-        } 
+        }
         return redirect()->route('employee.create');
     }
 

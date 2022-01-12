@@ -40,7 +40,6 @@
 							{{$employee->role->name??null}}
 						</td>
 						<td>
-							{{-- {{!empty($employee->department)?$employee->department->name:null}} --}}
 							{{$employee->department->name??null}}
 						</td>
 						<td>

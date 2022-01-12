@@ -5,14 +5,6 @@
 	<div class="col-lg-12">
 		<h1 class="page-header">Edit Payroll : {{ $payroll->employee->name }}</h1>
 	</div>
-		@if($payroll->employee->full_time)
-			<p><b>Full-Time</b> :  Yes</p>
-			<p><b>Base Salary</b>: {{ $payroll->employee->role->salary }}</p>
-		@else
-			<p><b>Part-Time<b> : Yes</p>
-			<br>
-			<p><b>Base Salary<b>: 0</p>
-		@endif
 		
 		<form action="{{ route('payrolls.update',['id'=>$payroll->id])}}" method="POST"
 			class="form-horizontal">

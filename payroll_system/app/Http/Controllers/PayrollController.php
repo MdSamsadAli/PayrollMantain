@@ -28,6 +28,8 @@ class PayrollController extends Controller
     public function create()
     {
         //
+        return view('payroll.create');
+
     }
 
     /**
@@ -39,6 +41,15 @@ class PayrollController extends Controller
     public function store(Request $request)
     {
         //
+        $payroll = new Payroll();
+        $payroll-> employee_id = $request->get('employee_id');
+        $payroll-> salary = $request->get('salary');
+        $payroll-> overtime = $request->get('overtime');
+        $payroll-> hours = $request->get('hours');
+        $payroll-> rate = $request->get('rate');
+        $payroll-> gross = $request->get('gross');
+        $payroll->save();
+        return redirect()->route('payroll.index');      
     }
 
     /**
