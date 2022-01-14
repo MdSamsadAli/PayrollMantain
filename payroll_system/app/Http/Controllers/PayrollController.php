@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Payroll;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,6 @@ class PayrollController extends Controller
     {
         //
         $payroll = Payroll::all();
-        // dd($payroll->all());
         return view('payroll.index', compact('payroll'));
     }
 
@@ -27,8 +27,9 @@ class PayrollController extends Controller
      */
     public function create()
     {
-        //
-        return view('payroll.create');
+        $employees = Employee::get();
+        $payroll = Payroll::all();
+        return view('payroll.create', compact('employees','payroll'));
 
     }
 
@@ -40,16 +41,12 @@ class PayrollController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $payroll = new Payroll();
-        $payroll-> employee_id = $request->get('employee_id');
-        $payroll-> salary = $request->get('salary');
-        $payroll-> overtime = $request->get('overtime');
-        $payroll-> hours = $request->get('hours');
-        $payroll-> rate = $request->get('rate');
-        $payroll-> gross = $request->get('gross');
-        $payroll->save();
-        return redirect()->route('payroll.index');      
+        $data = $request->all();
+        if(Payroll::create($data)){
+            $gross_salary = $request->salary + ($request->hours*$request->rate);
+            return redirect()->route('payroll.index');      
+        }
+        return redirect()->route('payroll.create');      
     }
 
     /**
@@ -94,6 +91,9 @@ class PayrollController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payroll = Payroll::find($id);
+        if(!empty($payroll))
+            $payroll->delete();
+        return redirect()->route('payroll.index');
     }
 }

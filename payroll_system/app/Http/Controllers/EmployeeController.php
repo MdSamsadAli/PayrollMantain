@@ -16,7 +16,6 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
         $employees = Employee::all();
         return view('employee.index', compact('employees'));
     }
@@ -28,7 +27,6 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
         $roll = Roll::get();
         $departments = Department::get();
         return view('employee.create', compact('roll', 'departments'));
@@ -77,8 +75,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+        $department = Department::get();
+        $roll = Roll::get();
+        return view('employee.edit', compact('employee', 'department', 'roll'));
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -89,7 +91,15 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee-> name = $request->get('name');
+        $employee-> email = $request->get('email');
+        $employee-> address = $request->get('address');
+        $employee-> role_id = $request->get('role_id');
+        $employee-> department_id = $request->get('department_id');
+        $employee->salary = $request->get('salary');
+        $employee->save();
+        return redirect()->route('employee.index');
     }
 
     /**
@@ -100,6 +110,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        if(!empty($employee))
+            $employee->delete();
+        return redirect()->route('employee.index');
     }
 }

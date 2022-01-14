@@ -29,9 +29,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-	<script>
+	{{-- <script>
 		@if(Session::has('success'))
 			toastr.success("{{ Session::get('success')}}")		
 		@endif
@@ -44,6 +44,6 @@
 		setTimeout((event) => {
 			$(".flash-msg").slideUp();
 		}, 2000);	
-	</script>
+	</script> --}}
 </body>
 </html>

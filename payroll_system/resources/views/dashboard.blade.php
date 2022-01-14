@@ -7,29 +7,29 @@
 		
 	<div class="col-lg-3 text-center">
 		<div class="panel panel-default">
-			<div class="panel-heading">Payroll issued</div>
-			<div class="panel-body">payrollcount</div>
+			<div class="panel-heading">Total Payrolls issued</div>
+			<div class="panel-body">{{$payrolls->count()}}</div>
 
 		</div>
 	</div>
 	
 	<div class="col-lg-3 text-center">
 		<div class="panel panel-info">
-			<div class="panel-heading">Employee Count</div>
+			<div class="panel-heading">Total Employees</div>
 			<div class="panel-body">{{$employees->count()}}</div>		
 		</div>
 	</div>
 	
 	<div class="col-lg-3 text-center">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Role Count</div>
+			<div class="panel-heading">Total Employess's Rolls</div>
 			<div class="panel-body">{{$rolls->count()}}</div>		
 		</div>
 	</div>
 	
 	<div class="col-lg-3 text-center">
 		<div class="panel panel-success">
-			<div class="panel-heading">Department</div>
+			<div class="panel-heading">Total Departments</div>
 			<div class="panel-body">{{$departments->count()}}</div>		
 		</div>
 	</div>

@@ -22,40 +22,37 @@
 		</thead>		
 			
 		<tbody>
-			{{-- @if($employee->payrolls->count()> 0) --}}
-				@foreach($payroll -> $payroll)
+			@if($payroll->count()> 0)
+				@foreach($payroll as $payroll)
+				{{-- @dd($payroll->employee) --}}
 					<tr>		
 						<td>
-                            created_at-
-						<td>
-                           NAME
+                            {{$payroll->created_at}}
 						</td>
-                        <td>salary</td>
-                        <td>OT</td>
-                        <td>32</td>
-                        <td>12</td>
-                        <td>TOTAL</td>
+						<td>
+                           {{($payroll->Employee_id)? $payroll->employee->name : null}}
+						</td>
+                        {{-- <td>{{$payro ll->employee->salary??null}}</td> --}}
+                        <td>{{$payroll->salary}}</td>
+                        <td>{{$payroll->over_time}}</td>
+                        <td>{{$payroll->hours}}</td>
+                        <td>{{$payroll->rate}}</td>
+                        <td>{{$payroll->gross}}</td>
 						
 						
 						<td>
-                            <a href="#" class="btn btn-success">Edit</a>
-							{{-- <a href="{{ route('payrolls.edit', ['id' => $payroll->id]) }}" class="btn btn-success">Edit</a> --}}
+                            <a href="{{route('payroll.edit', $payroll->id)}}" class="btn btn-success">edit</a>
 						</td>
 						<td>
-                            <form action="#">
-							{{-- <form action="{{ route('payrolls.destroy', ['id' => $payroll->id]) }}" method="POST"> --}}
-								{{-- {{csrf_field() }} --}}
-								{{-- {{method_field('DELETE')}} --}}
-								<button class="btn btn-danger">Bin</button>
-							</form>
+							<a href="{{route('payroll.destroy', $payroll->id)}}" class="btn btn-danger">Bin</a>
 						</td>
 					</tr>
 				@endforeach
-			{{-- @else --}}
+			@else
 				<tr> 
 					<th colspan="5" class="text-center">Empty</th>
 				</tr>
-			{{-- @endif --}}
+			@endif
 		</tbody>							
 	</table>
 @endsection

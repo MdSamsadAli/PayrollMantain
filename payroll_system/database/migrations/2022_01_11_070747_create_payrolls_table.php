@@ -19,8 +19,8 @@ class CreatePayrollsTable extends Migration
             $table->string('salary');
             // $table->foreignId('role_id')->nullable()->constrained('rolls', 'id')->cascadeOnUpdate()->nullOnDelete();
             $table->string('over_time');
-            $table->string('hours');
-            $table->string('rate');
+            $table->string('hours')->default(0);
+            $table->string('rate')->default(0);
             $table->string('gross');
             $table->timestamps();
         });
